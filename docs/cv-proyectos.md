@@ -19,17 +19,35 @@ El proceso general era: ingesta de datos crudos desde los sistemas transaccional
 
 El esfuerzo de cada subdominio variaba en complejidad y magnitud según el producto bancario a modelar.
 
+### Arquitectura de datos
+
+Plataforma Big Data (Cloudera / ecosistema Hadoop) organizada en zonas, sobre datos ingestados desde las 4 entidades del grupo (BER, BSC, BSJ, BSF):
+
+**Landing → Zona Cruda (RAW) → Zona Curada → Zona Refinada / Consumo (Datamart)**
+
+- **Landing:** recepción de archivos crudos enviados por cada banco
+- **Zona Cruda (RAW):** primera estructuración en HDFS — modelado, limpieza y estandarización inicial (todos los campos como STRING)
+- **Zona Curada:** aplicación de reglas de negocio, tipado y normalización de campos, resolviendo casos de uso concretos
+- **Zona Refinada / Consumo:** datamarts finales, organizados según la necesidad de cada área de negocio del banco, usados para construir sus dashboards
+
+Todo el proceso estaba estandarizado mediante un flujo repetible (diseño técnico → creación de tabla RAW → creación de tabla Curada → query de ingesta RAW→Curado → alta del término de gobierno en Atlas → validación de carga), con convenciones estrictas de nomenclatura, tipado y particionado por fecha de proceso.
+
 ### Stack técnico
 
-- **Hive** e **Impala** — motores SQL sobre Hadoop: Hive para el procesamiento batch/ETL, Impala para consultas analíticas de baja latencia consumidas por los dashboards
-- **HDFS** — almacenamiento distribuido, base de la plataforma de datos
-- **Apache Spark** — transformaciones de datos dentro del proceso ETL
-- **Apache NiFi** — orquestación y automatización de flujos de datos
-- **Apache Kafka** — mensajería y disparadores (triggers) de procesos en tiempo real
+- **Hadoop / Cloudera** — plataforma Big Data distribuida (HDFS como almacenamiento base)
+- **Hive** — data warehouse sobre Hadoop, lectura/escritura/gestión de grandes volúmenes de datos vía SQL (HiveQL)
+- **Impala** — motor de consultas SQL de baja latencia sobre HDFS/HBase, usado para las consultas analíticas que alimentaban los dashboards
+- **Cloudera Hue** — interfaz web para interactuar con el clúster (ejecución de queries, creación de tablas)
+- **Apache Kudu** — almacenamiento orientado a datos en tiempo real dentro del ecosistema Hadoop
+- **Apache NiFi** — automatización e integración de flujos de datos; microservicio que detecta y levanta automáticamente los archivos entrantes
+- **Apache Atlas** — gobierno de datos y gestión de metadata: catalogación de cada fuente ingestada mediante "terms" (glosario), con clasificación, encoding, patrón de archivo y trazabilidad de las queries de transformación
+- **FileZilla / WinSCP / PuTTY** — transferencia segura de archivos (SFTP) y administración remota (SSH) entre los servidores de cada entidad y los entornos de desarrollo/producción
+- **FortiClient VPN** — conectividad segura a los entornos de los bancos
+- **Elastic Stack** — búsqueda, monitoreo y análisis en tiempo real dentro de la plataforma
 
 ### Valor entregado
 
-Continuidad y evolución de una plataforma crítica de datos multi-entidad, incorporando nuevos dominios de información bancaria (tarjetas de crédito, clientes, préstamos) de forma sostenida durante 2 años, dando soporte a 4 bancos del grupo con datamarts confiables para la construcción de reportes y dashboards de negocio.
+Continuidad y evolución de una plataforma crítica de datos multi-entidad, incorporando nuevos dominios de información bancaria (tarjetas de crédito, clientes, préstamos) de forma sostenida durante 2 años, dando soporte a 4 bancos del grupo con datamarts confiables y gobernados (trazabilidad end-to-end vía Atlas) para la construcción de reportes y dashboards de negocio.
 
 ---
 
