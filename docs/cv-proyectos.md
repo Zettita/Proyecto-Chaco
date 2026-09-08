@@ -9,11 +9,11 @@ Documento de trabajo: acá vamos acumulando el contenido de cada proyecto antes 
 **Cliente:** Grupo Petersen (entidades bancarias del grupo)
 **Bancos involucrados:** Banco Entre Ríos, Banco San Juan, Banco Santa Fe, Banco Santa Cruz
 **Duración:** ~2 años
-**Rol de Zettita:** Mantenimiento y evolución de una plataforma de datos ya en marcha al momento de incorporarnos al proyecto
+**Rol de Helios System:** Mantenimiento y evolución de una plataforma de datos ya en marcha al momento de incorporarnos al proyecto
 
 ### Descripción
 
-Zettita se incorporó a un proyecto de Repositorio Único de Datos ya en funcionamiento para el Grupo Petersen, adaptándose a las herramientas y procesos existentes para dar continuidad y evolucionar la plataforma. El trabajo consistía en generar nuevos **subdominios de datos** por cada producto bancario (tarjetas de crédito, clientes, préstamos, entre otros), integrando información de múltiples entidades del grupo (Banco Entre Ríos, Banco San Juan, Banco Santa Fe y Banco Santa Cruz).
+Helios System se incorporó a un proyecto de Repositorio Único de Datos ya en funcionamiento para el Grupo Petersen, adaptándose a las herramientas y procesos existentes para dar continuidad y evolucionar la plataforma. El trabajo consistía en generar nuevos **subdominios de datos** por cada producto bancario (tarjetas de crédito, clientes, préstamos, entre otros), integrando información de múltiples entidades del grupo (Banco Entre Ríos, Banco San Juan, Banco Santa Fe y Banco Santa Cruz).
 
 El proceso general era: ingesta de datos crudos desde los sistemas transaccionales de cada banco → proceso de **ETL** → generación de un **datamart** por dominio, que cada banco luego utilizaba como base para construir sus propios dashboards de negocio para distintos sectores/áreas.
 
@@ -35,7 +35,7 @@ Continuidad y evolución de una plataforma crítica de datos multi-entidad, inco
 
 ## Pendiente para completar este proyecto (opcional)
 
-- [ ] ¿Cuántas personas de Zettita conformaban el equipo?
+- [ ] ¿Cuántas personas de Helios System conformaban el equipo?
 - [ ] ¿Hay capturas de pantalla, diagramas de arquitectura o dashboards (sin datos sensibles) que se puedan usar como material visual?
 - [ ] ¿El proyecto sigue activo hoy o ya finalizó? (fecha de cierre si aplica)
 
