@@ -21,9 +21,9 @@ El esfuerzo de cada subdominio variaba en complejidad y magnitud según el produ
 
 ### Arquitectura de datos
 
-Plataforma Big Data (Cloudera / ecosistema Hadoop) organizada en zonas, sobre datos ingestados desde las 4 entidades del grupo (BER, BSC, BSJ, BSF):
+Plataforma Big Data (Cloudera / ecosistema Hadoop) organizada en zonas bajo un enfoque tipo **Medallion** (patrón de arquitectura de datos ampliamente adoptado en la industria), sobre datos ingestados desde las 4 entidades del grupo (BER, BSC, BSJ, BSF):
 
-**Landing → Zona Cruda (RAW) → Zona Curada → Zona Refinada / Consumo (Datamart)**
+**Fuentes → Ingesta → Landing → Zona Cruda (RAW) → Zona Curada → Zona Refinada / Consumo (Datamart) → Decisiones**
 
 - **Landing:** recepción de archivos crudos enviados por cada banco
 - **Zona Cruda (RAW):** primera estructuración en HDFS — modelado, limpieza y estandarización inicial (todos los campos como STRING)
@@ -61,6 +61,45 @@ Continuidad y evolución de una plataforma crítica de datos multi-entidad, inco
 
 ---
 
+## Proyecto 2: Repositorio Central de Datos e Integración con Sistemas Internos
+
+**Cliente:** Grupo Petersen (a confirmar si es la misma unidad/entidad que el Proyecto 1, o un area distinta del grupo)
+**Fuente:** documento "Antecedentes de proyectos - GP" (borrador preliminar, sin datos comerciales completos)
+
+### Objetivo
+
+Construir un repositorio centralizado que permitiera concentrar información relevante para la operación y disponibilizarla de manera consistente a otros componentes y sistemas de la organización.
+
+### Enfoque de solución
+
+- Centralización de información proveniente de diferentes sistemas internos
+- Diseño de un repositorio de datos común para reducir la dispersión de información
+- Integración con aplicaciones y sistemas internos mediante **APIs**
+- Definición de interfaces de consulta e intercambio de información entre componentes
+- Organización de la información para facilitar su reutilización por distintos procesos y consumidores
+
+### Flujo
+
+**Sistemas internos / Fuentes operativas → Integraciones vía APIs → Repositorio Central (datos consolidados) → Servicios consumidores / Aplicaciones y procesos**
+
+### Valor entregado
+
+Se estableció una capa central de información e integración, facilitando que los sistemas internos pudieran intercambiar y consumir datos a través de interfaces definidas y desacopladas.
+
+### Pendiente para completar este proyecto
+
+Este proyecto todavía está descrito en términos genéricos (viene de un documento preliminar). Para poder armar su canvas con el mismo nivel de detalle que el Proyecto 1, falta:
+
+- [ ] Nombre formal del proyecto y contexto/area dentro de Grupo Petersen
+- [ ] Período de ejecución y duración
+- [ ] Equipo y roles asignados por Helios System
+- [ ] Tecnologías utilizadas (motor de base de datos, tecnología de APIs, mensajería, etc.)
+- [ ] Sistemas internos concretos que se integraron, y cuántas fuentes/integraciones
+- [ ] Volumen de datos aproximado
+- [ ] Resultados medibles o beneficios concretos obtenidos
+
+---
+
 ## Próximo proyecto
 
-_(esperando el detalle del segundo proyecto)_
+_(esperando el detalle del tercer proyecto, si aplica)_
