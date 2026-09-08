@@ -4,6 +4,25 @@ Documento de trabajo: acá vamos acumulando el contenido de cada proyecto antes 
 
 ---
 
+## Capacidades de la empresa
+
+Sección transversal (no ligada a un proyecto puntual), pensada como página de "quiénes somos" del portfolio.
+
+| Capacidad | Descripción |
+|---|---|
+| Arquitectura de Datos | Diseño de plataformas analíticas, arquitecturas por capas (Medallion) y repositorios centralizados |
+| Ingeniería de Datos | Ingesta, transformación, normalización y construcción de flujos ETL/ELT |
+| Integración de Sistemas | Diseño de interfaces y APIs para conectar sistemas internos y desacoplar consumidores |
+| Análisis Funcional y Diagnóstico | Relevamiento de sistemas y flujos de negocio existentes para identificar mejoras, cuellos de botella y puntos de dolor |
+| Gobierno y Trazabilidad | Catalogación, metadata, lineage, controles de calidad y consistencia |
+| QA y Validación | Validación de datos, de la lógica funcional y de la consistencia de los procesos implementados |
+| Analítica | Modelado y construcción de Data Marts preparados para tableros y explotación de negocio |
+| Evolución de Plataformas | Incorporación de nuevos dominios y adaptación a ecosistemas tecnológicos existentes |
+
+**Cómo trabajamos:** Entender → Diseñar → Implementar → Validar → Evolucionar. La metodología se adapta al contexto de cada organización: relevamiento de la situación existente (incluyendo análisis funcional y diagnóstico), diseño de una solución viable, implementación incremental, validación de calidad de datos y lógica funcional, y evolución sostenida.
+
+---
+
 ## Proyecto 1: Repositorio Único de Datos - Grupo Petersen
 
 **Cliente:** Grupo Petersen (entidades bancarias del grupo)
