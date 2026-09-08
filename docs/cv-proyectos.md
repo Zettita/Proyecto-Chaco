@@ -39,7 +39,9 @@ Todo el proceso estaba estandarizado mediante un flujo repetible (diseño técni
 - **Impala** — motor de consultas SQL de baja latencia sobre HDFS/HBase, usado para las consultas analíticas que alimentaban los dashboards
 - **Cloudera Hue** — interfaz web para interactuar con el clúster (ejecución de queries, creación de tablas)
 - **Apache Kudu** — almacenamiento orientado a datos en tiempo real dentro del ecosistema Hadoop
+- **Apache Spark** — procesamiento distribuido de datos dentro del proceso ETL
 - **Apache NiFi** — automatización e integración de flujos de datos; microservicio que detecta y levanta automáticamente los archivos entrantes
+- **Apache Kafka** — mensajería y disparadores (triggers) de procesos en tiempo real
 - **Apache Atlas** — gobierno de datos y gestión de metadata: catalogación de cada fuente ingestada mediante "terms" (glosario), con clasificación, encoding, patrón de archivo y trazabilidad de las queries de transformación
 - **FileZilla / WinSCP / PuTTY** — transferencia segura de archivos (SFTP) y administración remota (SSH) entre los servidores de cada entidad y los entornos de desarrollo/producción
 - **FortiClient VPN** — conectividad segura a los entornos de los bancos
